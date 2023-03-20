@@ -1,0 +1,763 @@
+{
+    "page": {
+        "defaultStyle": {
+            "familyName": "Times New Roman",
+            "fontSize": "9",
+            "fontStyle": "Bold",
+            "_comment": "FontSize In em, FontStyle:Regular, Bold, Italic, Underline, Strikeout"
+        }
+    },
+    "Header": [],
+    "Body": [{
+            "Type": "Logo",
+            "Height": 100,
+            "Value": [
+                "!preference.logo"
+            ]
+        },
+        {
+            "Type": "CenterTextBox",
+            "Style": {
+                "fontSize": 11,
+                "fontStyle": "Bold"
+            },
+            "Value": [
+                "!preference.resturant_name"
+            ]
+        },
+        {
+            "Type": "CenterTextBox",
+            "Style": {
+                "fontSize": 11,
+                "fontStyle": "Bold"
+            },
+            "Value": [
+                "!order.service.Service_name",
+                "# ",
+                "!order.ticket_number"
+            ]
+        },
+        {
+            "Type": "CenterTextBox",
+            "Style": {
+                "fontSize": 12,
+                "fontStyle": "Bold"
+            },
+            "Value": [
+                "Vat ",
+                "!preference.vat_registration_number",
+                " ",
+                "الرقم الضريبي"
+            ]
+        },
+        {
+            "Type": "Line"
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Check No ",
+                "   ",
+                "!order.id"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Date",
+                "   : ",
+                "!order.date_time"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Server",
+                "   : ",
+                "!order.employee.name"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Terminal : ",
+                "!order.terminal_id"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                ""
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Customer"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "NAME ",
+                " : ",
+                "!order.customer.name"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "CODE ",
+                " : ",
+                "!order.customer.id_number"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "MOBILE ",
+                " : ",
+                "!order.customer_contact"
+            ],
+            "RightValue": [
+                ""
+            ]
+        },
+        {
+            "Type": "CenterTextBox",
+            "Value": [
+                "Table:",
+                "!order.dinein_table.name"
+            ],
+            "Hidden": {
+                "Property": "!order.dinein_table.name",
+                "Value": ""
+            },
+            "Style": {
+                "fontSize": 14,
+                "fontStyle": "Bold"
+            }
+        },
+        {
+            "Type": "Line"
+        },
+        {
+            "Type": "Table",
+            "Source": "!order.transaction",
+            "Columns": [{
+                    "Width": "10",
+                    "HeaderValue": "Qty"
+                },
+                {
+                    "Width": "80",
+                    "HeaderValue": "Name"
+                },
+                {
+                    "Width": "10",
+                    "HeaderValue": "Price"
+                }
+            ],
+            "Rows": [{
+                    "Heights": "",
+                    "Hidden": {
+                        "Property": "!status",
+                        "Value": "1"
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                "!qty"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                "!menu_item.name",
+                                "   (Voided)"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [{
+                                "Value": "!grand_price",
+                                "Converter": "Number"
+                            }]
+                        }
+                    ]
+                },
+                {
+                    "Heights": "",
+                    "Hidden": {
+                        "Property": "!status",
+                        "Value": "2"
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                "!qty"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                "!menu_item.name"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [{
+                                "Value": "!item_sub_total",
+                                "Converter": "Number"
+                            }]
+                        }
+                    ]
+                },
+                {
+                    "Heights": "",
+                    "Hidden": {
+                        "Property": "!status",
+                        "Value": "2"
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                ""
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                "!menu_item.secondary_name"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Heights": "",
+                    "Hidden": {
+                        "Property": "!status",
+                        "Value": "2"
+                    },
+                    "Source": "!modifiers",
+                    "Rows": [{
+                            "Heights": "",
+                            "Cells": [{
+                                    "Type": "TextBox",
+                                    "Value": [
+                                        ""
+                                    ]
+                                },
+                                {
+                                    "Type": "TextBox",
+                                    "Value": [
+                                        "!qty",
+                                        "x ",
+                                        "!modifier.display"
+                                    ]
+                                },
+                                {
+                                    "Type": "TextBox",
+                                    "Value": [{
+                                        "Value": "!actual_price",
+                                        "Converter": "Number"
+                                    }]
+                                }
+                            ]
+                        },
+                        {
+                            "Heights": "",
+                            "Cells": [{
+                                    "Type": "TextBox",
+                                    "Value": [
+                                        ""
+                                    ]
+                                },
+                                {
+                                    "Type": "TextBox",
+                                    "Value": [
+                                        "   ",
+                                        "!modifier.secondary_display_name"
+                                    ]
+                                },
+                                {
+                                    "Type": "TextBox",
+                                    "Value": [
+                                        ""
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Heights": "",
+                    "Hidden": {
+                        "Property": "!discount_amount",
+                        "Value": "0"
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                ""
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                "Discount",
+                                " ",
+                                "الخصم"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [{
+                                "Value": "!discount_actual_price",
+                                "Converter": "Number"
+                            }]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "Line"
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "المجموع يشمل ضريبة القيمة المضافة"
+            ],
+            "RightValue": [{
+                "Value": "!order.sub_total_price",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.tax3",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "TOTAL WITH VAT"
+            ],
+            "RightValue": [
+                ""
+            ],
+            "Hidden": {
+                "Property": "!order.tax3",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "Line"
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "قيمة المنتجات PRODUCT VALUE"
+            ],
+            "RightValue": [{
+                "Value": "!order.sub_total_price_no_tax3",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.tax3",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "ضريبة القيمة المضافة Vat",
+                "!order.tax3",
+                "%"
+            ],
+            "RightValue": [{
+                "Value": "!order.total_tax3",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.tax3",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Surcharge (",
+                "!order.surcharge.name",
+                ")"
+            ],
+            "RightValue": [{
+                "Value": "!order.surcharge_actual_amount",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.surcharge_amount",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "!preference.tax1_name"
+            ],
+            "RightValue": [{
+                "Value": "!order.total_tax",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.total_tax",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "!preference.tax2_name"
+            ],
+            "RightValue": [{
+                "Value": "!order.total_tax2",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.total_tax2",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Delivery Charge"
+            ],
+            "RightValue": [{
+                "Value": "!order.delivery_charge",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.delivery_charge",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Discount (",
+                "!order.discount_name_txt",
+                ")"
+            ],
+            "RightValue": [{
+                "Value": "!order.discount_actual_amount",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.discount_amount",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Rounding"
+            ],
+            "RightValue": [{
+                "Value": "!order.Rounding",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.Rounding",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "Table",
+            "Source": "!order.payments",
+            "Columns": [{
+                    "Width": "70",
+                    "HeaderValue": ""
+                },
+                {
+                    "Width": "30",
+                    "HeaderValue": ""
+                }
+            ],
+            "Rows": [{
+                    "Heights": "",
+                    "visible": {
+                        "Property": "!status",
+                        "Value": "0"
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                "!payment_method.name"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Alignment": "Right",
+                            "Value": [{
+                                "Value": "!actual_amount_paid",
+                                "Converter": "Currency"
+                            }]
+                        }
+                    ]
+                },
+                {
+                    "Heights": "",
+                    "visible": {
+                        "Property": "!status",
+                        "Value": "0"
+                    },
+                    "Hidden": {
+                        "Property": "!reference",
+                        "Value": ""
+                    },
+                    "Cells": [{
+                            "Type": "TextBox",
+                            "Value": [
+                                " (",
+                                "!reference",
+                                ")"
+                            ]
+                        },
+                        {
+                            "Type": "TextBox",
+                            "Value": [
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Paid Amount"
+            ],
+            "RightValue": [{
+                "Value": "!order.amount_tendered",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.amount_tendered",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Balance"
+            ],
+            "RightValue": [{
+                "Value": "!order.balance",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.balance",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "CHANGE"
+            ],
+            "RightValue": [{
+                "Value": "!order.amount_change",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.amount_tendered",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "CenterTextBox",
+            "Value": [
+                "**الفاتورة محذوفة**"
+            ],
+            "Style": {
+                "fontSize": 13,
+                "fontStyle": "Bold"
+            },
+            "Visible": {
+                "Property": "!order.status",
+                "Value": "4"
+            }
+        },
+        {
+            "Type": "CenterTextBox",
+            "Value": [
+                "**Voided**"
+            ],
+            "Style": {
+                "fontSize": 13,
+                "fontStyle": "Bold"
+            },
+            "Visible": {
+                "Property": "!order.status",
+                "Value": "4"
+            }
+        },
+        {
+            "Type": "CenterTextBox",
+            "Value": [
+                "**الفاتورة مدفوعة**"
+            ],
+            "Style": {
+                "fontSize": 13,
+                "fontStyle": "Bold"
+            },
+            "Visible": {
+                "Property": "!order.status",
+                "Value": "3"
+            }
+        },
+        {
+            "Type": "CenterTextBox",
+            "Value": [
+                "**Paid Order**"
+            ],
+            "Style": {
+                "fontSize": 13,
+                "fontStyle": "Bold"
+            },
+            "Visible": {
+                "Property": "!order.status",
+                "Value": "3"
+            }
+        },
+        {
+            "Type": "EInvoice",
+            "Width": 150,
+            "Height": 150,
+            "Visible": {
+                "Property": "!order.status",
+                "Value": "3"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Total Kcal"
+            ],
+            "RightValue": [{
+                "Value": "!order.order.Total_Kcal",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.order.Total_Kcal",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Total Fat"
+            ],
+            "RightValue": [{
+                "Value": "!order.Total_Fat",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.Total_Fat",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Total Carb"
+            ],
+            "RightValue": [{
+                "Value": "!order.Total_Carb",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.Total_Carb",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                "Total Protein"
+            ],
+            "RightValue": [{
+                "Value": "!order.Total_Protein",
+                "Converter": "Currency"
+            }],
+            "Hidden": {
+                "Property": "!order.Total_Protein",
+                "Value": "0"
+            }
+        },
+        {
+            "Type": "Line"
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                ""
+            ],
+            "RightValue": [
+                "رقم الاتصال :", " ", "!preference.phone"
+            ]
+        },
+
+
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                ""
+            ],
+            "RightValue": [
+                "!preference.address1"
+            ]
+        },
+        {
+            "Type": "SideTextBox",
+            "LeftValue": [
+                ""
+            ],
+            "RightValue": [
+                "!preference.address2"
+            ]
+        }
+    ],
+    "Footer": []
+}
